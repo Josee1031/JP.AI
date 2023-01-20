@@ -12,7 +12,11 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 
 const app = express();
-app.use(cors());
+app.use(
+  cors({
+    origin: '*',
+  })
+);
 app.use(express.json());
 
 app.get('/', async (req, res) => {
@@ -44,6 +48,6 @@ app.post('/', async (req, res) => {
   }
 });
 
-app.listen(8080, () =>
-  console.log('Server is running on port http://localhost:8080')
+app.listen(5500, () =>
+  console.log('Server is running on port http://localhost:5000/')
 );
